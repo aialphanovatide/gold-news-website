@@ -1,33 +1,54 @@
 /* TopStoryNews.css */
-.news-card {
-    width: 656px;
-    height: 210px;
+
+/* Asegúrate de que el contenedor principal se comporte como una columna */
+.news-card-ts {
+    width: 749.01px;
+    height: 678px;      
     border-radius: 23px;
     margin-bottom: 20px;
-    display: flex;
-    background-color: #f0f0f0;
+    background-color: white;
     overflow: hidden;
 }
 
-.news-image {
-    width: 100%;
-    height: 50%;
-    object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+/* Establece la disposición de los elementos internos */
+.top-section {
+    display: flex;
+    justify-content: center;
 }
 
-.news-content {
-    width: 100%;
+/* Ajusta el tamaño de la imagen */
+.news-image-large {
+    width: 749.01px;
+    height: 385.05px;
+    object-fit: cover;
+}
+
+/* Alinea el texto al centro */
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea el contenido al centro horizontalmente */
     padding: 20px;
 }
 
-.news-date {
-    font-size: 14px;
-    color: #888;
+/* Establece el ancho del contenido */
+.news-date, .news-title-ts, .news-description-ts {
+    width: 100%;
+    text-align: left; /* Alinea el texto al centro */
 }
 
-.news-title {
-    font-size: 18px;
+/* Ajusta el estilo del título */
+.news-title-ts {
+    font-size: 36px;
     margin-top: 10px;
-    margin-bottom: 0;
+    margin-bottom: 5px;
     color: #333;
+}
+
+/* Ajusta el estilo de la descripción */
+.news-description-ts{
+    font-size: 20px;
+    color: #333;
+    font-weight: 200;
+
 }

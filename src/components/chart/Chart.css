@@ -1,0 +1,28 @@
+/* Chart.css */
+.chart-d-container {
+    width: 1540px;
+    height: 774px;
+    border-radius: 23px;
+    background-color: white;
+    padding: 20px;
+}
+
+.temporal-buttons {
+    display: flex;
+    margin-left: 10%;
+}
+
+.temporal-button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E0AA3E;
+    color: white;
+    cursor: pointer;
+}
+
+.temporal-button:last-child {
+    margin-right: 0;
+}

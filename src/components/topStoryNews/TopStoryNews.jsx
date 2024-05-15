@@ -4,13 +4,20 @@ import './TopStoryNews.css'; // Asumiendo que hay un archivo de estilo común pa
 
 function TopStoryNews({ news }) {
     return (
-        <div className="news-card top-story-news">
-            <img src={news.image} alt="News" className="news-image" />
-            <div className="news-content">
-                <p className="news-date">{news.datePublished}</p>
-                <h2 className="news-title">{news.title}</h2>
+        <>
+        <div className="news-card-ts top-story-news">
+                <div className="top-section">
+                    <img src={news.image} alt="News" className="news-image-large" />
+                </div>
+            <div className="news-content-ts">
+                <div className="bottom-section">
+                    <p className="news-date">{news.datePublished}</p>
+                    <h2 className="news-title-ts">{news.title}</h2>
+                    <p className="news-description-ts">{news.description}</p>
+                </div>
             </div>
         </div>
+        </>
     );
 }
 

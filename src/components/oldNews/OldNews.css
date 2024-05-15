@@ -1,6 +1,6 @@
 /* OldNews.css */
 .news-card {
-    width: 656px;
+    width: 756px;
     height: 210px;
     border-radius: 23px;
     margin-bottom: 20px;
@@ -15,12 +15,12 @@
     object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor */
 }
 
-.news-content {
-    width: 50%;
+.news-content-old {
+    width: calc(100% - 200px); /* Se ajusta el ancho para dejar espacio al lado de la imagen */
     padding: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    justify-content: flex-start; /* Alinea los elementos desde la parte superior */
 }
 
 .news-date {

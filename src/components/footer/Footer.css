@@ -1,0 +1,95 @@
+.footer-container {
+    width: 100%;
+    height: 274px;
+    background: #171717;
+    display: flex;
+    padding: 10px;
+    position: relative;
+  }
+  
+  
+  .footer-item-1 {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start;
+    width: 25%;
+  }
+  
+  .footer-title{
+    padding: 0;
+    margin: 0;
+
+    font-size: 55px;
+  }
+
+  .footer-subtitle{
+    padding: 0;
+    margin: 0;
+    margin-left: 45px;
+    margin-top: -5px;
+    font-weight: 200;
+    font-size: 24px;
+  }
+
+
+  .footer-item-2 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start;
+  }
+  .footer-item-3 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  
+  .footer-p-4 {
+    color: white;
+    position: absolute;
+    bottom: 70px;
+  }
+  
+
+  .footer-p, .footer-title, .footer-subtitle{
+    color: white;
+  }
+
+
+.footer-title{
+    margin-left: 8%;
+}
+
+
+  
+  .footer-item-4 {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-scroll-top-btn {
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .footer-scroll-top-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .footer-scroll-top-icon {
+    color: black;
+  }

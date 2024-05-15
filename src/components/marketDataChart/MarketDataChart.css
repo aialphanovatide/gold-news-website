@@ -1,0 +1,40 @@
+/* MarketDataChart.css */
+
+.market-data-chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.mdc-title {
+    margin: 0;
+}
+
+.price-info-card {
+    margin-right: 36px;
+    display: flex;
+    flex-direction: column;
+}
+
+.price-variation {
+    display: flex;
+    align-items: center;
+    color: red
+}
+
+.price-data {
+    margin: 0;
+    font-size: 24px;
+}
+
+.variation-data {
+    margin: 0;
+    font-size: 16px;
+    margin-left: 10px; 
+
+}
+
+.date-data {
+    margin-top: 12px;
+}
