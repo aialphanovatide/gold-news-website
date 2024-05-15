@@ -1,0 +1,33 @@
+/* TopStoryNews.css */
+.news-card {
+    width: 656px;
+    height: 210px;
+    border-radius: 23px;
+    margin-bottom: 20px;
+    display: flex;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.news-image {
+    width: 100%;
+    height: 50%;
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+}
+
+.news-content {
+    width: 100%;
+    padding: 20px;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.news-title {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #333;
+}

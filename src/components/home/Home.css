@@ -1,0 +1,45 @@
+.home-container {
+    background-color: white; 
+    height: 100vh; 
+    width: 100%; 
+    margin: 0;
+    padding: 0;
+    
+}
+
+.home-title{
+    font-size: 58px;
+    margin-bottom: -30px;
+    padding: 0;
+    
+}
+
+
+.home-subtitle{
+    font-size: 25px;
+    font-weight: 300;
+}
+
+
+.title-container{
+    text-align: center;
+}
+
+
+.news-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+}
+
+.left-news,
+.right-news {
+    width: 50%; /* Asigna el 50% del ancho total */
+}
+
+/* Si deseas alinear los elementos verticalmente dentro de left-news y right-news */
+.left-news,
+.right-news {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea verticalmente los elementos */
+}

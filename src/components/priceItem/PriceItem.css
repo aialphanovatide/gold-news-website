@@ -1,0 +1,23 @@
+.price-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    font-family: "Inter", sans-serif;
+    font-size: 40px;
+}
+
+.price-item .name {
+    font-weight: bold;
+}
+
+.up {
+    color: green;
+}
+
+.down {
+    color: red;
+}
