@@ -1,4 +1,6 @@
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa'; 
+import React from 'react';
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import './PriceItem.css'; // Asegúrate de tener los estilos CSS necesarios
 
 function PriceItem({ name, price, variation }) {
     const up = variation >= 0;
@@ -8,12 +10,14 @@ function PriceItem({ name, price, variation }) {
     };
 
     const containerStyles = {
-        color: 'white'
+        color: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        margin: '0 10px'
     };
 
     const ArrowIcon = up ? FaArrowUp : FaArrowDown;
 
-    const sign = up ? '+' : '-';
     const variationColor = up ? 'green' : 'red';
 
     return (
@@ -22,7 +26,7 @@ function PriceItem({ name, price, variation }) {
             <span className="name">{name}</span>‎ ‎ ‎ ‎ 
             <span className="price">{price.toFixed(2)}</span>‎ ‎ 
             <span className="variation" style={{ color: variationColor }}>‎ ‎ 
-                {sign}{Math.abs(variation).toFixed(2)} 
+                {parseFloat(variation).toFixed(2)} %
             </span>‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
         </div>
     );

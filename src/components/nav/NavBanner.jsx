@@ -1,17 +1,17 @@
 import React from 'react';
 import './NavBanner.css';
 
-function NavBanner() {
+function NavBanner({ onMetalClick }) {
     const handleMetalClick = (metal) => {
-        console.log(`Selected metal: ${metal}`);
+        onMetalClick(metal);
     };
 
     return (
         <div className="nav-banner">
-            <span onClick={() => handleMetalClick('Gold')}>Gold</span>
-            <span onClick={() => handleMetalClick('Silver')}>Silver</span>
-            <span onClick={() => handleMetalClick('Platinum')}>Platinum</span>
-            <span onClick={() => handleMetalClick('Palladium')}>Palladium</span>
+            <span onClick={() => handleMetalClick('gold')}>Gold</span>
+            <span onClick={() => handleMetalClick('silver')}>Silver</span>
+            <span onClick={() => handleMetalClick('platinum')}>Platinum</span>
+            <span onClick={() => handleMetalClick('palladium')}>Palladium</span>
         </div>
     );
 }

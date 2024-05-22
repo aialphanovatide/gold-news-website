@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   VictoryChart,
   VictoryLine,
@@ -8,78 +8,85 @@ import {
 } from "victory";
 import "./Chart.css";
 
-function Chart() {
-  const [temporalidad, setTemporalidad] = useState("1h");
+function Chart({ metalName }) {
+  const [dailyPrices, setDailyPrices] = useState([]);
+  const [dates, setDates] = useState([]);
+  const [baseSymbol, setBaseSymbol] = useState("");
+  console.log(metalName.metal);
 
-  // Función para cambiar la temporalidad
-  const cambiarTemporalidad = (nuevaTemporalidad) => {
-    setTemporalidad(nuevaTemporalidad);
-  };
+  useEffect(() => {
+    const fetchDailyPrices = async () => {
+      const today = new Date();
+      const startDate = new Date(today.getTime() - 10 * 24 * 60 * 60 * 1000);
+      const API_KEY =
+        "3c2i35imqhcg6bk08kq34y6kv7kv9ivno61en687a3e88utc32yqpwq195ye";
 
-  // Función para obtener las etiquetas del eje x según la temporalidad
-  const obtenerEtiquetasEjeX = () => {
-    switch (temporalidad) {
-      case "1h":
-        return ["00:00", "01:00", "02:00", "03:00", "04:00"];
-      case "1d":
-        return ["22-04", "23-04", "24-04", "25-04", "26-04"];
-      case "1w":
-        return ["22-03", "29-03", "06-04", "13-04", "20-04", "27-04", "04-05"];
-      case "1m":
-        return ["March", "April", "May", "June", "July"];
-      default:
-        return [];
-    }
-  };
+      let baseSymbol = ""; // Definir baseSymbol dentro de useEffect
 
-  // Función para obtener los precios del eje y según la temporalidad
-  const obtenerPreciosEjeY = () => {
-    switch (temporalidad) {
-      case "1h":
-        return [4100, 4200, 4300, 4400, 4500];
-      case "1d":
-        return [4300, 4400, 4500, 4600, 4700];
-      case "1w":
-        return [4500, 4600, 4700, 4800, 4900];
-      case "1m":
-        return [4600, 4700, 4800, 4900, 5000];
-      default:
-        return [];
-    }
-  };
+      switch (metalName.metal.metal) {
+        case "gold":
+          baseSymbol = "XAU";
+          break;
+        case "silver":
+          baseSymbol = "XAG";
+          break;
+        case "platinum":
+          baseSymbol = "XPT";
+          break;
+        case "palladium":
+          baseSymbol = "XPD";
+          break;
+        default:
+          baseSymbol = "XAU"; // Valor por defecto
+      }
+
+      setBaseSymbol(baseSymbol);
+
+      const fetchPromises = [];
+      const fetchedDates = [];
+
+      for (let i = 0; i < 10; i++) {
+        const currentDate = new Date(
+          startDate.getTime() + i * 24 * 60 * 60 * 1000
+        );
+        const dateString = currentDate.toISOString().slice(0, 10);
+        fetchedDates.push(currentDate.toLocaleDateString());
+
+        fetchPromises.push(
+          fetch(
+            `https://metals-api.com/api/open-high-low-close/${dateString}?access_key=${API_KEY}&base=${baseSymbol}&symbols=USD`
+          )
+            .then((response) => response.json())
+            .catch((error) => ({ rates: { close: 0 } })) // Handling errors gracefully
+        );
+      }
+
+      const data = await Promise.all(fetchPromises);
+      const prices = data.map((dayData, index) => {
+        if (dayData.rates && dayData.rates.close) {
+          return { x: index + 1, y: dayData.rates.close };
+        } else {
+          return { x: index + 1, y: null };
+        }
+      });
+
+      setDailyPrices(prices);
+      setDates(fetchedDates);
+    };
+
+    fetchDailyPrices();
+  }, [metalName]);
+
+  console.log(metalName); // Agregar metalName como una dependencia
 
   return (
     <div className="chart-d-container">
-      <div className="temporal-buttons">
-        <button
-          className="temporal-button"
-          onClick={() => cambiarTemporalidad("1h")}
-        >
-          1h
-        </button>
-        <button
-          className="temporal-button"
-          onClick={() => cambiarTemporalidad("1d")}
-        >
-          1d
-        </button>
-        <button
-          className="temporal-button"
-          onClick={() => cambiarTemporalidad("1w")}
-        >
-          1w
-        </button>
-        <button
-          className="temporal-button"
-          onClick={() => cambiarTemporalidad("1m")}
-        >
-          1m
-        </button>
-      </div>
       <VictoryChart
         theme={VictoryTheme.material}
         width={1333}
         height={774}
+        padding={{ top: 50, bottom: 50, left: 75, right: 75 }}
+        domainPadding={{ x: 20, y: 20 }}
         style={{
           background: { fill: "#f5f5f5" },
         }}
@@ -89,25 +96,18 @@ function Chart() {
             data: { stroke: "#E0AA3E" },
             parent: { border: "5px solid black" },
           }}
-          data={[
-            { x: 1, y: 4123 },
-            { x: 2, y: 4331 },
-            { x: 3, y: 4221 },
-            { x: 4, y: 4561 },
-            { x: 5, y: 4700 },
-          ]}
-          interpolation="natural" // Tipo de interpolación para la línea
-          labelComponent={<VictoryTooltip />} // Componente de tooltip para mostrar los valores
+          data={dailyPrices}
+          interpolation="natural"
+          labelComponent={<VictoryTooltip />}
         />
-        {/* Definir ejes */}
         <VictoryAxis
-          tickValues={[1, 2, 3, 4, 5]} // Valores en el eje x
-          tickFormat={obtenerEtiquetasEjeX()} // Etiquetas en el eje x según la temporalidad
+          tickValues={dailyPrices.map((_, index) => index + 1)}
+          tickFormat={dates}
         />
         <VictoryAxis
           dependentAxis
           orientation="right"
-          tickValues={obtenerPreciosEjeY()}
+          tickFormat={(y) => (y ? `USD/${baseSymbol} ${y.toFixed(2)}` : "N/A")} // Utilizar baseSymbol aquí
         />
       </VictoryChart>
     </div>
