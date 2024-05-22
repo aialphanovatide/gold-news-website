@@ -13,12 +13,14 @@
     display: flex;
     white-space: nowrap;
     height: 100%;
+    
     align-items: center; 
     font-size: 20px;
     margin-left: 1%;
 }
 
 .price-item {
+    
     display: flex;
     background-color: black;
     align-items: center;

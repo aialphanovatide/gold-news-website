@@ -1,6 +1,6 @@
 /* MarketDataChart.css */
 
-.market-data-chart-container {
+.market-data-chart-container, .chart-container {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -82,6 +82,7 @@ function Chart({ metalName }) {
   return (
     <div className="chart-d-container">
       <VictoryChart
+        key={baseSymbol}
         theme={VictoryTheme.material}
         width={1333}
         height={774}
@@ -107,7 +108,7 @@ function Chart({ metalName }) {
         <VictoryAxis
           dependentAxis
           orientation="right"
-          tickFormat={(y) => (y ? `USD/${baseSymbol} ${y.toFixed(2)}` : "N/A")} // Utilizar baseSymbol aquí
+          tickFormat={(y) => (y ? `${y.toFixed(2)}` : "N/A")} 
         />
       </VictoryChart>
     </div>

@@ -13,7 +13,7 @@ function PriceItem({ name, price, variation }) {
         color: 'white',
         display: 'flex',
         alignItems: 'center',
-        margin: '0 10px'
+        marginLeft: '10px'
     };
 
     const ArrowIcon = up ? FaArrowUp : FaArrowDown;
@@ -27,7 +27,7 @@ function PriceItem({ name, price, variation }) {
             <span className="price">{price.toFixed(2)}</span>‎ ‎ 
             <span className="variation" style={{ color: variationColor }}>‎ ‎ 
                 {parseFloat(variation).toFixed(2)} %
-            </span>‎ ‎ ‎ ‎ ‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+            </span>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
         </div>
     );
 }

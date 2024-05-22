@@ -2,7 +2,7 @@
 
 /* Asegúrate de que el contenedor principal se comporte como una columna */
 .news-card-ts {
-    width: 749.01px;
+    width: 80%;
     height: 678px;      
     border-radius: 23px;
     margin-bottom: 20px;

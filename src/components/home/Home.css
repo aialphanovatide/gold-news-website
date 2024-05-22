@@ -55,9 +55,13 @@
 
 
 .trading-table{
-    margin-left: 160px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
+.tables-price{
+    width: 100%;
+}
 
 
 
