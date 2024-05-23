@@ -6,26 +6,30 @@
     margin: 0;
     height: 73px; 
     display: flex;
-    align-items: center;
+    text-align: center;
+    align-content: center;
+
 }
 
 .price-banner {
     display: flex;
     white-space: nowrap;
     height: 100%;
-    
-    align-items: center; 
     font-size: 20px;
-    margin-left: 1%;
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
 }
 
 .price-item {
-    
     display: flex;
     background-color: black;
-    align-items: center;
-    margin: 0 10px;
+    align-items: center;    
     animation: blink 1s infinite;
+    text-align: center;
+    align-content: center;
+    padding: 30px;
+
 }
 
 @keyframes blink {
@@ -33,4 +37,3 @@
     50% { opacity: 0; }
     100% { opacity: 1; }
 }
-

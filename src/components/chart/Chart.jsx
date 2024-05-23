@@ -12,57 +12,52 @@ function Chart({ metalName }) {
   const [dailyPrices, setDailyPrices] = useState([]);
   const [dates, setDates] = useState([]);
   const [baseSymbol, setBaseSymbol] = useState("");
-  console.log(metalName.metal);
 
   useEffect(() => {
     const fetchDailyPrices = async () => {
       const today = new Date();
       const startDate = new Date(today.getTime() - 10 * 24 * 60 * 60 * 1000);
-      const API_KEY =
-        "3c2i35imqhcg6bk08kq34y6kv7kv9ivno61en687a3e88utc32yqpwq195ye";
+      const API_KEY = "3c2i35imqhcg6bk08kq34y6kv7kv9ivno61en687a3e88utc32yqpwq195ye";
+      let newBaseSymbol = "";
 
-      let baseSymbol = ""; // Definir baseSymbol dentro de useEffect
-
-      switch (metalName.metal.metal) {
+      switch (metalName.metal) {
         case "gold":
-          baseSymbol = "XAU";
+          newBaseSymbol = "XAU";
           break;
         case "silver":
-          baseSymbol = "XAG";
+          newBaseSymbol = "XAG";
           break;
         case "platinum":
-          baseSymbol = "XPT";
+          newBaseSymbol = "XPT";
           break;
         case "palladium":
-          baseSymbol = "XPD";
+          newBaseSymbol = "XPD";
           break;
         default:
-          baseSymbol = "XAU"; // Valor por defecto
+          newBaseSymbol = "XAU";
       }
 
-      setBaseSymbol(baseSymbol);
+      setBaseSymbol(newBaseSymbol);
 
       const fetchPromises = [];
       const fetchedDates = [];
 
       for (let i = 0; i < 10; i++) {
-        const currentDate = new Date(
-          startDate.getTime() + i * 24 * 60 * 60 * 1000
-        );
+        const currentDate = new Date(startDate.getTime() + i * 24 * 60 * 60 * 1000);
         const dateString = currentDate.toISOString().slice(0, 10);
         fetchedDates.push(currentDate.toLocaleDateString());
 
         fetchPromises.push(
           fetch(
-            `https://metals-api.com/api/open-high-low-close/${dateString}?access_key=${API_KEY}&base=${baseSymbol}&symbols=USD`
+            `https://metals-api.com/api/open-high-low-close/${dateString}?access_key=${API_KEY}&base=${newBaseSymbol}&symbols=USD`
           )
             .then((response) => response.json())
-            .catch((error) => ({ rates: { close: 0 } })) // Handling errors gracefully
-        );
+            .catch((error) => ({ rates: { close: 0 } }))  );
       }
 
       const data = await Promise.all(fetchPromises);
       const prices = data.map((dayData, index) => {
+        
         if (dayData.rates && dayData.rates.close) {
           return { x: index + 1, y: dayData.rates.close };
         } else {
@@ -75,18 +70,17 @@ function Chart({ metalName }) {
     };
 
     fetchDailyPrices();
-  }, [metalName]);
+  }, [metalName]); // Dependencia en metalName
 
-  console.log(metalName); // Agregar metalName como una dependencia
 
   return (
     <div className="chart-d-container">
       <VictoryChart
-        key={baseSymbol}
+        key={`${baseSymbol}-${dates.join(',')}`} 
         theme={VictoryTheme.material}
         width={1333}
-        height={774}
-        padding={{ top: 50, bottom: 50, left: 75, right: 75 }}
+        height={874}
+        padding={{ top: 20, bottom: 50, left: 75, right: 75 }}
         domainPadding={{ x: 20, y: 20 }}
         style={{
           background: { fill: "#f5f5f5" },
@@ -108,7 +102,9 @@ function Chart({ metalName }) {
         <VictoryAxis
           dependentAxis
           orientation="right"
-          tickFormat={(y) => (y ? `${y.toFixed(2)}` : "N/A")} 
+          tickFormat={(y) => {
+            return y ? `${y.toFixed(2)}` : "N/A";
+          }}
         />
       </VictoryChart>
     </div>

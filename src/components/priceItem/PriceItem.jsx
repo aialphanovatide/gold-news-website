@@ -9,26 +9,19 @@ function PriceItem({ name, price, variation }) {
         color: up ? 'green' : 'red'
     };
 
-    const containerStyles = {
-        color: 'white',
-        display: 'flex',
-        alignItems: 'center',
-        marginLeft: '10px'
-    };
 
     const ArrowIcon = up ? FaArrowUp : FaArrowDown;
 
     const variationColor = up ? 'green' : 'red';
 
     return (
-        <div className="price-item" style={containerStyles}>
-            <ArrowIcon style={iconStyles} />‎ ‎ 
+        <div className="price-item">
+            <ArrowIcon style={iconStyles} />
             <span className="name">{name}</span>‎ ‎ ‎ ‎ 
             <span className="price">{price.toFixed(2)}</span>‎ ‎ 
             <span className="variation" style={{ color: variationColor }}>‎ ‎ 
                 {parseFloat(variation).toFixed(2)} %
-            </span>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
-        </div>
+            </span>  </div>
     );
 }
 

@@ -1,6 +1,6 @@
 /* OldNews.css */
 .news-card {
-    width: 80%;
+
     height: 210px;
     border-radius: 23px;
     margin-bottom: 20px;
@@ -16,7 +16,7 @@
 }
 
 .news-content-old {
-    width: calc(100% - 200px); /* Se ajusta el ancho para dejar espacio al lado de la imagen */
+    width: 500px;/* Se ajusta el ancho para dejar espacio al lado de la imagen */
     padding: 20px;
     display: flex;
     flex-direction: column; /* Alinea los elementos verticalmente */
@@ -33,4 +33,9 @@
     margin-top: 10px;
     margin-bottom: 0;
     color: #333;
+}
+
+
+.old-news-container{
+    margin-left: 20%;
 }
