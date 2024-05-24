@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import '../newsDetail/NewsDetail.css'
-import ad2 from "../../assets/02.jpg";
-import ad3 from "../../assets/03.jpg";
+
 
 function ArticleDetail() {
   const { id } = useParams(); // Correctamente desestructurando id del hook useParams

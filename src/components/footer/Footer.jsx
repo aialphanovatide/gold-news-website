@@ -34,7 +34,7 @@ const Footer = () => {
             className="footer-scroll-top-icon"
           />
         </button>
-        <p className="footer-p-4">Powered By Novatide</p>
+        <p className="footer-p-4">Powered By Novatide <stong>Labs</stong></p>
       </div>
     </footer>
   );
