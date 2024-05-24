@@ -1,0 +1,74 @@
+/* TopStoryNews.css */
+
+/* Asegúrate de que el contenedor principal se comporte como una columna */
+.news-card-ad {
+    width: 80%;
+    height: 678px;      
+    border-radius: 23px;
+    margin-bottom: 20px;
+    background-color: white;
+    overflow: hidden;
+}
+
+/* Establece la disposición de los elementos internos */
+.top-section-ad {
+    display: flex;
+    justify-content: center;
+    border-radius: 17;
+}
+
+/* Ajusta el tamaño de la imagen */
+.news-image-large-ad {
+    width: 749.01px;
+    height: 385.05px;
+    object-fit: cover;
+
+}
+
+/* Alinea el texto al centro */
+.bottom-section-ad {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea el contenido al centro horizontalmente */
+    padding: 20px;
+}
+
+/* Establece el ancho del contenido */
+.news-date-ad, .news-title-ad, .news-description-ad {
+    width: 100%;
+    text-align: left; /* Alinea el texto al centro */
+}
+
+/* Ajusta el estilo del título */
+.news-title-ad {
+    font-size: 36px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Ajusta el estilo de la descripción */
+.news-description-ad{
+    font-size: 20px;
+    color: #333;
+    font-weight: 200;
+
+}
+
+
+
+.ad-container{
+    background-color: white;
+    width: 720px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.ad2, .ad3{
+    width: 80%;
+    margin-top: 0;
+    margin-bottom: 10px;
+    height: 300px;
+    border-radius: 15px;
+
+}

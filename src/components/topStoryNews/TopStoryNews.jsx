@@ -1,7 +1,7 @@
-// TopStoryNews.jsx
 import React, { useState, useEffect } from 'react';
-import './TopStoryNews.css'; // Asumiendo que hay un archivo de estilo común para las noticias
+import './TopStoryNews.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function TopStoryNews() {
     const [latestNews, setLatestNews] = useState(null);
@@ -9,11 +9,14 @@ function TopStoryNews() {
     useEffect(() => {
         const fetchLatestNews = async () => {
             try {
-                const response = await axios.get('https://flzzwcwm-5000.brs.devtunnels.ms/get_articles?bot_id=40');
+                const response = await axios.get('https://flzzwcwm-5000.brs.devtunnels.ms/get_articles?bot_id=40&limit=30');
                 const newsData = response.data.data;
-                const sortedNews = newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                const mostRecentNews = sortedNews[0];
-                setLatestNews(mostRecentNews);
+                if (newsData && newsData.length > 0) {
+                    const sortedNews = newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+                    setLatestNews(sortedNews[0]);
+                } else {
+                    console.error("No news data received");
+                }
             } catch (error) {
                 console.error('Error fetching latest news:', error);
             }
@@ -24,28 +27,27 @@ function TopStoryNews() {
 
     const getContentUntilFirstPeriod = (content) => {
         const firstPeriodIndex = content.indexOf('.');
-        return content.substring(0, firstPeriodIndex + 1);
+        return firstPeriodIndex > -1 ? content.substring(0, firstPeriodIndex + 1) : content;
     };
 
-    console.log("id: ", latestNews)
+    // Render only when latestNews is not null
+    if (!latestNews) {
+        return <p>Loading latest news...</p>;
+    }
 
     return (
-        <div className="news-card-ts top-story-news">
-            {latestNews && (
-                <>
-                    <div className="top-section">
-                        <img src={`https://mktnewsposters.s3.us-east-2.amazonaws.com/${latestNews.id}.jpg`} alt="News" className="news-image-large" />
-                    </div>
-                    <div className="news-content-ts">
-                        <div className="bottom-section">
-                            <p className="news-date">{latestNews.date}</p>
-                            <h2 className="news-title-ts">{latestNews.title}</h2>
-                            <p className="news-description-ts">{getContentUntilFirstPeriod(latestNews.content)}</p>
-                        </div>
-                    </div>
-                </>
-            )}
-        </div>
+        <Link to={`/news/${latestNews.id}`} className="news-card-ts top-story-news">
+            <div className="top-section">
+                <img src={`https://responsive.fxempire.com/v7/_fxempire_/sites/2/Gold-50J-4.jpg`} alt="News" className="news-image-large" />
+            </div>
+            <div className="news-content-ts">
+                <div className="bottom-section">
+                    <p className="news-date">{latestNews.date}</p>
+                    <h2 className="news-title-ts">{latestNews.title}</h2>
+                    <p className="news-description-ts">{getContentUntilFirstPeriod(latestNews.content)}</p>
+                </div>
+            </div>
+        </Link>
     );
 }
 

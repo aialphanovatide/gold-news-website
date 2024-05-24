@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './OldNews.css'; 
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
 
 function OldNews() {
     const [oldNews, setOldNews] = useState([]);
@@ -20,17 +21,19 @@ function OldNews() {
 
         fetchOldNews();
     }, []);
-
+    console.log(oldNews)
     return (
         <div className="old-news-container">
             {oldNews.map((news) => (
-                <div key={news.id} className="news-card old-news">
-                    <img src={news.image} alt="News" className="news-image" />
-                    <div className="news-content-old">
-                        <p className="news-date">{news.datePublished}</p>
-                        <h2 className="news-title">{news.title}</h2>
+                <Link to={`/news/${news.id}`} key={news.id} className="news-link"> {/* Enlace a la página de detalles de la noticia */}
+                    <div className="news-card old-news">
+                        <img src={`https://mktnewsposters.s3.us-east-2.amazonaws.com/${news.id}.jpg`} alt="News" className="news-image" />
+                        <div className="news-content-old">
+                            <p className="news-date">{news.date}</p>
+                            <h2 className="news-title">{news.title}</h2>
+                        </div>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     );

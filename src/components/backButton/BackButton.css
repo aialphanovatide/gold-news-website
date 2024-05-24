@@ -1,0 +1,19 @@
+.back-button {
+    color: #E0AA3E; /* Color dorado para el texto */
+    font-weight: 400; /* Grosor normal del texto, no muy grueso */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+    padding: 5px 10px; /* Espaciado interno para mejor clickeabilidad */
+    display: block; /* Asegura que el padding se aplique correctamente */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para efectos al pasar el mouse */
+}
+
+.back-button:hover {
+/* Cambio de fondo al pasar el mouse */
+    color: #c88a2f; /* Oscurece el color al pasar el mouse para un efecto interactivo */
+}
+
+/* Estilos específicos para la flecha, si es necesario */
+.back-button::before {
+/* Añade la flecha antes del texto y un espacio no separable */
+    font-size: 1.2em; /* Ajusta el tamaño de la flecha si es necesario */
+}

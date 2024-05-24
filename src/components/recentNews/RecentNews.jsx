@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './RecentNews.css'; 
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // Importa el componente Link
 
 function RecentNews() {
     const [recentNews, setRecentNews] = useState([]);
@@ -24,14 +25,18 @@ function RecentNews() {
     return (
         <div className="recent-news-container">
             {recentNews.map((news) => (
-                <div key={news.id} className="news-card-recent recent-news">
-                    <img src={`https://mktnewsposters.s3.us-east-2.amazonaws.com/${news.id}.jpg`} alt="News" className="news-image" />
-                    <div className="news-content-recent">
-                        <p className="news-date">{news.datePublished}</p>
-                        <h2 className="news-title">{news.title}</h2>
+                <Link key={news.id} to={`/news/${news.id}`} className="news-link"> {/* Agrega un enlace al detalle de la noticia */}
+                    <div className="news-card-recent recent-news">
+                        <img src={`https://mktnewsposters.s3.us-east-2.amazonaws.com/${news.id}.jpg`} alt="News" className="news-image" />
+                        <div className="news-content-recent">
+                            <br></br>
+                            <br></br>
+                            <p className="news-date">{news.date}</p>
+                            <h2 className="news-title">{news.title}</h2>
+                        </div>
                     </div>
-                </div>
-            )).slice(1)} {/* Excluir el primer artículo */}
+                </Link>
+            )).slice(1)} {/* Excluye el primer artículo */}
         </div>
     );
 }

@@ -41,3 +41,16 @@
     color: #888;
     margin-top: 5px;
 }
+
+
+
+.news-link {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto del padre para que coincida con el diseño */
+  }
+  
+  .news-link:hover {
+    text-decoration: none; /* Asegura que el subrayado no aparezca al pasar el mouse */
+    color: inherit; /* Mantiene el color del texto al pasar el mouse */
+  }
+  

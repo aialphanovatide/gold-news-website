@@ -6,11 +6,10 @@ import './App.css';
 function App() {
   return (
     <Router>
-      {/* Elimina el padding y los bordes aquí */}
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/news-detail" element={<NewsDetail />} />
+          <Route path="/news/:id" element={<NewsDetail />} /> 
         </Routes>
       </div>
     </Router>

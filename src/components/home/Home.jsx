@@ -11,6 +11,7 @@ import TradingProcess from "../tradingProcess/TradingProcess";
 import Footer from "../footer/Footer";
 import Logo from '../../assets/Logo.png'; 
 
+
 function Home() {
  const [selectedMetal, setSelectedMetal] = useState("gold");
  const handleMetalSelection = (metal) => {
@@ -20,6 +21,7 @@ function Home() {
   return (
     <div className="home-container">
       <PriceBanner />
+
       <div className="title-container">
       <img className="logo" src={Logo} alt="Logo" />
       </div>
