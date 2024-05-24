@@ -9,7 +9,7 @@ function TopStoryNews() {
     useEffect(() => {
         const fetchLatestNews = async () => {
             try {
-                const response = await axios.get('https://flzzwcwm-5000.brs.devtunnels.ms/get_articles?bot_id=40&limit=30');
+                const response = await axios.get('https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=40&limit=30');
                 const newsData = response.data.data;
                 if (newsData && newsData.length > 0) {
                     const sortedNews = newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -34,11 +34,13 @@ function TopStoryNews() {
     if (!latestNews) {
         return <p>Loading latest news...</p>;
     }
+    
+    console.log("latestNews",latestNews.image)
 
     return (
         <Link to={`/news/${latestNews.id}`} className="news-card-ts top-story-news">
             <div className="top-section">
-                <img src={`https://responsive.fxempire.com/v7/_fxempire_/sites/2/Gold-50J-4.jpg`} alt="News" className="news-image-large" />
+                <img src={`https://sitesnewsposters.s3.us-east-2.amazonaws.com/${latestNews.image}`} alt="News" className="news-image-large" />
             </div>
             <div className="news-content-ts">
                 <div className="bottom-section">
@@ -52,3 +54,7 @@ function TopStoryNews() {
 }
 
 export default TopStoryNews;
+
+
+
+
