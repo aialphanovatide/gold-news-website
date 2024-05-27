@@ -35,7 +35,7 @@ function ArticleDetail() {
     <div className="ad-container">
       <div className="top-section-ad">
         <img
-          src={`https://mktnewsposters.s3.us-east-2.amazonaws.com/${artDetail.data.id}.jpg`}
+          src={`https://sitesnewsposters.s3.us-east-2.amazonaws.com/${artDetail.data.id}.jpg`}
           alt="News"
           className="news-image-large-ad"
         />

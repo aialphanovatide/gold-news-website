@@ -37,7 +37,7 @@ function RecentNews() {
                         </div>
                     </div>
                 </Link>
-            )).slice(1)} {/* Excluye el primer artículo */}
+            )).slice(1)} 
         </div>
     );
 }

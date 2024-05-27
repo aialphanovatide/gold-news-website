@@ -60,6 +60,8 @@ function PriceBanner() {
         return { difference, percentage };
     };
 
+ 
+
     return (
         <div className="price-banner-container">
             <div className="price-banner">
