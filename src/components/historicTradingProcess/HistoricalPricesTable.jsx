@@ -39,7 +39,7 @@ function HistoricalPricesTable({ title, data }) {
           </tbody>
         </table>
       ) : (
-        <h3 style={{ textAlign: 'center', marginTop: '120px'}}>Please select a time period to view historical prices.</h3>
+        <h3 style={{ textAlign: 'center', marginTop: '20px'}}>Please select a time period to view historical prices.</h3>
       )}
     </div>
   );
