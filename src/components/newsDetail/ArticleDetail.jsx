@@ -11,7 +11,7 @@ function ArticleDetail() {
   useEffect(() => {
     const fetchArticleDetail = async () => {
       try {
-        const response = await axios.get(`https://zztc5v98-5001.uks1.devtunnels.ms/get_article/${id}`);
+        const response = await axios.get(`https://zztc5v98-5001.uks1.devtunnels.ms/get_article_by_id/${id}`);
         setArtDetail(response.data);
       } catch (error) {
         console.error('Error fetching article details:', error);
