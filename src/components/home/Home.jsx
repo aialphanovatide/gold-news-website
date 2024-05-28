@@ -24,7 +24,7 @@ function Home() {
   return (
     <div className="home-container">
       <PriceBanner />
-      <img src={ad1} className="ad1" alt="Advertisement" />
+      <img src={ad1} className="ad1" alt="Advertisement" onClick={() => window.location.href = 'https://aialpha.ai/educate'} />
       <div className="title-container">
         <img className="logo" src={Logo} alt="Logo" />
       </div>
@@ -35,9 +35,9 @@ function Home() {
           <OldNews />
         </div>
         <div className="right-news">
-          <img src={ad2} className="ad2" alt="Advertisement" />
+          <img src={ad2} className="ad2" alt="Advertisement" onClick={() => window.location.href = 'https://aialpha.ai/educate'} />
           <RecentNews />
-          <img src={ad3} className="ad3" alt="Advertisement" />
+          <img src={ad3} className="ad3" alt="Advertisement" onClick={() => window.location.href = 'https://aialpha.ai/educate'} />
         </div>
       </div>
       <div className="trading-table">

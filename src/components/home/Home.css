@@ -95,3 +95,7 @@
     margin-top: 20px;
     object-fit: fill;
 }
+
+.ad1:hover, .ad2:hover, .ad3:hover {
+    cursor:pointer
+}
