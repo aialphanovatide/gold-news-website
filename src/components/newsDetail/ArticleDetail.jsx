@@ -5,7 +5,7 @@ import '../newsDetail/NewsDetail.css'
 
 
 function ArticleDetail() {
-  const { id } = useParams(); // Correctamente desestructurando id del hook useParams
+  const { id } = useParams(); 
   const [artDetail, setArtDetail] = useState(null);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function ArticleDetail() {
     <div className="ad-container">
       <div className="top-section-ad">
         <img
-          src={`https://sitesnewsposters.s3.us-east-2.amazonaws.com/${artDetail.data.id}.jpg`}
+          src={`https://sitesnewsposters.s3.us-east-2.amazonaws.com/${artDetail.data.image}`}
           alt="News"
           className="news-image-large-ad"
         />
