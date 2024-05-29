@@ -33,6 +33,7 @@
   }
 
 
+
   .footer-item-2 {
     width: 25%;
     display: flex;
@@ -93,3 +94,46 @@
   .footer-scroll-top-icon {
     color: black;
   }
+
+
+
+
+
+  @media (max-width: 767px) {
+    .footer-container {
+      height: auto;
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .footer-item-1,
+    .footer-item-2,
+    .footer-item-3,
+    .footer-item-4 {
+      width: 100%;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .footer-title {
+      font-size: 40px;
+      margin-left: 0;
+    }
+  
+    .footer-subtitle {
+      font-size: 18px;
+      margin-left: 0;
+      margin-top: -3px;
+    }
+  
+    .footer-p-4 {
+      position: static;
+      margin-top: 20px;
+      text-align: center;
+    }
+  
+    .footer-scroll-top-btn {
+      margin-top: 0;
+    }
+  }
+  

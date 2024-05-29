@@ -99,3 +99,116 @@
 .ad1:hover, .ad2:hover, .ad3:hover {
     cursor:pointer
 }
+
+
+
+
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .home-container {
+      height: auto;
+    }
+  
+    .title-container {
+      margin-top: 20px;
+    }
+  
+    .logo {
+      width: 220px;
+    }
+  
+    .news-container {
+      flex-direction: column;
+    }
+  
+    .left-news,
+    .right-news {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      align-items: center;
+    }
+  
+    .trading-table {
+      padding-left: 7.5%;
+      padding-right: 7.5%;
+    }
+  
+    .selectors {
+      margin-left: 0;
+      justify-content: center;
+    }
+  
+    .ad1,
+    .ad2,
+    .ad3 {
+      height: 120px;
+    }
+  }
+
+
+
+  @media (max-width: 767px) {
+    .home-container {
+      height: auto;
+    }
+  
+    .title-container {
+      margin-top: 20px;
+    }
+  
+    .logo {
+      width: 80%;
+      height: 50%;
+    }
+  
+    .news-container {
+      flex-direction: column;
+    }
+  
+    .left-news,
+    .right-news {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      align-items: center;
+    }
+  
+    .trading-table {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  
+    .selectors {
+      margin-left: 0;
+      justify-content: center;
+    }
+  
+    .ad1,
+    .ad2,
+    .ad3 {
+      height: 100px;
+    }
+
+    .select-container {
+        padding: 10px;
+      }
+    
+      .tpt-title {
+        font-size: 18px;
+      }
+    
+      .selectors {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .selects-container {
+        width: 100%;
+        margin: 5px 0;
+      }
+    
+      .tables-price {
+        padding: 10px;
+      }
+  }

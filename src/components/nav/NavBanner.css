@@ -1,19 +1,32 @@
-.nav-banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 58px;
-    background: linear-gradient(to right, #E0AA3E, #F9F295);
-    font-family: "Inter", sans-serif;
-    padding-left:60px;
+    .nav-banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 58px;
+        background: linear-gradient(to right, #E0AA3E, #F9F295);
+        font-family: "Inter", sans-serif;
+        padding-left:60px;
 
-}
+    }
 
-.nav-banner span {
-    cursor: pointer;
-    margin: 0 10px;
-    color: #fff; 
-    font-weight: 500;
-    margin: 50px;
-}
+    .nav-banner span {
+        cursor: pointer;
+        margin: 0 10px;
+        color: #fff; 
+        font-weight: 500;
+        margin: 50px;
+    }
 
+
+
+    @media (max-width: 767px) {
+        .nav-banner {
+          flex-direction: column;
+          height: auto;
+          padding: 10px;
+        }
+      
+        .nav-banner span {
+          margin: 10px 0;
+        }
+      }

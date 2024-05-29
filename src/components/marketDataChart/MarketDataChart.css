@@ -38,3 +38,49 @@
 .date-data {
     margin-top: 12px;
 }
+
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    .market-data-chart-container{
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .mdc-title {
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    .price-info-card {
+      margin-right: 0;
+      margin-top: 20px;
+    }
+  
+    .price-variation {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .price-data {
+      font-size: 20px;
+    }
+  
+    .variation-data {
+      font-size: 14px;
+      margin-left: 0;
+      margin-top: 5px;
+    }
+  
+    .date-data {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .chart-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    }
+  }

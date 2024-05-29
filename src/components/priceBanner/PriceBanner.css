@@ -32,3 +32,42 @@
 
 }
 
+
+@media (max-width: 767px) {
+    .price-banner-container {
+        overflow: hidden;
+        width: 100%;
+        padding: 0;
+        background-color: black;
+        margin: 0;
+        height: 73px; 
+        display: flex;
+        text-align: center;
+        align-content: center;
+    }
+    
+    .price-banner {
+        display: flex;
+        white-space: nowrap;
+        height: 100%;
+        font-size: 20px;
+        text-align: center;
+        align-content: center;
+        animation: marquee 20s linear infinite;
+    }
+    
+    @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+    
+    .price-item {
+        display: flex;
+        background-color: black;
+        align-items: center;    
+        animation: blink 1s infinite;
+        text-align: center;
+        align-content: center;
+        padding: 30px;
+    }
+  }

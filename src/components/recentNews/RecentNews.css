@@ -1,6 +1,6 @@
 /* RecentNews.css */
 .news-card-recent {
-    width: 80%;
+    width: 100%;
     height: 212px;
     border-radius: 23px;
     margin-bottom: 20px;
@@ -52,5 +52,52 @@
   .news-link:hover {
     text-decoration: none; /* Asegura que el subrayado no aparezca al pasar el mouse */
     color: inherit; /* Mantiene el color del texto al pasar el mouse */
+  }
+  
+
+
+  /* Estilos para pantallas pequeñas (móviles) */
+@media(max-width: 767px) {
+    .news-card-content {
+      width: 120%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+    }
+  
+    .news-image {
+      width: 100%;
+      height: 180px;
+    }
+  
+    .news-content-recent {
+      width: 300px !important;
+      padding: 10px;
+      justify-content: flex-end;
+      background-color: red;
+      
+      
+    }
+
+    .news-title {
+        margin-bottom: 0;
+        margin-top: 0 !important;
+        color: red;
+        font-weight: 300;
+        font-size: 14px !important;
+        font-display: normal;
+        margin-bottom: 35% !important;
+    }
+  
+  
+    .news-date,
+    .news-author {
+      font-size: 10px !important;
+    }
+    .recent-news-container{
+        margin-left: 5% !important;
+    }
   }
   

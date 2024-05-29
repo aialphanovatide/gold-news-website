@@ -15,6 +15,7 @@ function HistoricalPricesTable({ title, data }) {
       <div className="table-title" style={{background: 'linear-gradient(90deg, #E0AC40 0%, #F2DE7D 100%)'}}>
         <h2 className='title-table-hpt'>{title}</h2>
       </div>
+      <div className="table-container">
       {formattedData.length > 0 ? (
         <table>
           <thead>
@@ -41,6 +42,7 @@ function HistoricalPricesTable({ title, data }) {
       ) : (
         <h3 style={{ textAlign: 'center', marginTop: '20px'}}>Please select a time period to view historical prices.</h3>
       )}
+      </div>
     </div>
   );
 }
