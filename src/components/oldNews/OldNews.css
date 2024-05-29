@@ -9,6 +9,11 @@
     overflow: hidden;
 }
 
+.old-news-container{
+
+    width: 96%;
+}
+
 .news-image {
     width: 50%;
     height: 100%;
@@ -29,13 +34,13 @@
 }
 
 .news-title {
-    font-size: 18px;
+    font-size: 22px;
     margin-top: 10px;
     margin-bottom: 0;
     color: #333;
 }
 
 
-.old-news-container{
-    margin-left: 20%;
+.old-news{
+    width: 100% !important;
 }

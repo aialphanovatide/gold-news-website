@@ -3,7 +3,7 @@
 /* Asegúrate de que el contenedor principal se comporte como una columna */
 .news-card-ts {
     width: 96%;
-    height: 35%;
+    height: auto;
     border-radius: 23px;
     margin-bottom: 20px;
     background-color: white;

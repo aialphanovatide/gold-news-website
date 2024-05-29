@@ -6,7 +6,8 @@ function PriceItem({ name, price, variation }) {
     const up = variation >= 0;
 
     const iconStyles = {
-        color: up ? 'green' : 'red'
+        color: up ? 'green' : 'red',
+        marginRight: '10px'
     };
 
 

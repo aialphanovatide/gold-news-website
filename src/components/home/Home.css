@@ -9,6 +9,8 @@
 
 .logo{
     width: 250px;
+    margin-top: -30px;
+    margin-bottom: -30px;
 }
 
 .home-title{
@@ -39,8 +41,11 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    margin-right: 20px; /* Alinea el contenido a la derecha en left-news y a la izquierda en right-news */
+
+
+}
+.left-news{
+  margin-left: 20px;
 }
 
 .right-news {
@@ -125,7 +130,6 @@
     .right-news {
       width: 100%;
       margin-right: 0;
-      margin-left: 0;
       align-items: center;
     }
   

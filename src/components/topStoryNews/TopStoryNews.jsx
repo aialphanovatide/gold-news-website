@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './TopStoryNews.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FaClock } from "react-icons/fa";
+
 
 function TopStoryNews() {
     const [latestNews, setLatestNews] = useState(null);
@@ -44,7 +46,7 @@ function TopStoryNews() {
             </div>
             <div className="news-content-ts">
                 <div className="bottom-section">
-                    <p className="news-date">{latestNews.date}</p>
+                    <p className="news-date">  <FaClock size={14} />  {latestNews.date}</p>
                     <h2 className="news-title-ts">{latestNews.title}</h2>
                     <p className="news-description-ts">{getContentUntilFirstPeriod(latestNews.content)}</p>
                 </div>

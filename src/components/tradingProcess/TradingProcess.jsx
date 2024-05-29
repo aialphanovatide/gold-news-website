@@ -11,7 +11,9 @@ const TradingProcess = () => {
   const [actualData, setActualData] = useState([]);
   const [historicData, setHistoricData] = useState([]);
 
-  const API_KEY = "3c2i35imqhcg6bk08kq34y6kv7kv9ivno61en687a3e88utc32yqpwq195ye";
+
+  const API_KEY =
+    "3c2i35imqhcg6bk08kq34y6kv7kv9ivno61en687a3e88utc32yqpwq195ye";
 
   const handleCurrencyChange = (e) => setCurrency(e.target.value);
   const handleYearChange = (e) => setYear(e.target.value);
@@ -50,8 +52,8 @@ const TradingProcess = () => {
         XAU: data.rates.USDXAU,
         XAG: data.rates.USDXAG,
         XPT: data.rates.USDXPT,
-        XPD: data.rates.USDXPD
-      }
+        XPD: data.rates.USDXPD,
+      },
     };
 
     setActualData(actualPrices);
@@ -149,7 +151,10 @@ const TradingProcess = () => {
       </div>
       <div className="tables-price">
         <HistoricalPricesTable title="London Fix Today" data={actualData} />
-        <HistoricalPricesTable title="London Fix Historical" data={historicData} />
+        <HistoricalPricesTable
+          title="London Fix Historical"
+          data={historicData}
+        />
       </div>
     </>
   );
