@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   VictoryChart,
-  VictoryLine,
+  VictoryArea,
   VictoryAxis,
   VictoryTheme,
   VictoryTooltip,
@@ -52,12 +52,12 @@ function Chart({ metalName }) {
             `https://metals-api.com/api/open-high-low-close/${dateString}?access_key=${API_KEY}&base=${newBaseSymbol}&symbols=USD`
           )
             .then((response) => response.json())
-            .catch((error) => ({ rates: { close: 0 } }))  );
+            .catch((error) => ({ rates: { close: 0 } }))
+        );
       }
 
       const data = await Promise.all(fetchPromises);
       const prices = data.map((dayData, index) => {
-        
         if (dayData.rates && dayData.rates.close) {
           return { x: index + 1, y: dayData.rates.close };
         } else {
@@ -72,23 +72,28 @@ function Chart({ metalName }) {
     fetchDailyPrices();
   }, [metalName]); // Dependencia en metalName
 
+  const validPrices = dailyPrices.filter(point => point.y !== null);
+  const minPrice = Math.min(...validPrices.map(point => point.y));
+  const maxPrice = Math.max(...validPrices.map(point => point.y));
 
   return (
     <div className="chart-d-container">
       <VictoryChart
-        key={`${baseSymbol}-${dates.join(',')}`} 
+        key={`${baseSymbol}-${dates.join(',')}`}
         theme={VictoryTheme.material}
-        width={1333}
+        width={1503}
         height={874}
-        padding={{ top: 20, bottom: 50, left: 75, right: 75 }}
-        domainPadding={{ x: 20, y: 20 }}
+        padding={{ top: 10, bottom: 40, left: 5, right: 50 }}
+        domainPadding={{ x: 0, y: 50 }}
+        domain={{ y: [minPrice, maxPrice] }}
         style={{
           background: { fill: "#f5f5f5" },
+          data: { fill: "tomato", width: 30 }
         }}
       >
-        <VictoryLine
+        <VictoryArea
           style={{
-            data: { stroke: "#E0AA3E" },
+            data: { fill: "#E0AA3E", stroke: "#E0AA3E" },
             parent: { border: "5px solid black" },
           }}
           data={dailyPrices}
