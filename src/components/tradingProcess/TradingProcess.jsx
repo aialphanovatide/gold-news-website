@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../home/Home.css";
+import "../tradingProcess/tradingProcess.css";
 import HistoricalPricesTable from "../historicTradingProcess/HistoricalPricesTable";
 
 const TradingProcess = () => {
@@ -10,7 +10,6 @@ const TradingProcess = () => {
   const [eligiblePeriods, setEligiblePeriods] = useState(["01-15", "15-30/31"]);
   const [actualData, setActualData] = useState([]);
   const [historicData, setHistoricData] = useState([]);
-
 
   const API_KEY =
     "3c2i35imqhcg6bk08kq34y6kv7kv9ivno61en687a3e88utc32yqpwq195ye";
@@ -42,9 +41,10 @@ const TradingProcess = () => {
   }, [currency, year, month, period]);
 
   const fetchActualPrices = async () => {
-    const response = await fetch(
-      `https://metals-api.com/api/latest?access_key=${API_KEY}&base=USD&symbols=XAU,XAG,XPD,XPT`
-    );
+    const url = `https://metals-api.com/api/latest?access_key=${API_KEY}&base=USD&symbols=XAU,XAG,XPD,XPT`;
+    console.log("Actual Prices URL:", url);
+
+    const response = await fetch(url);
     const data = await response.json();
 
     const actualPrices = {
@@ -66,9 +66,10 @@ const TradingProcess = () => {
     const historicData = {};
 
     const fetchMetalData = async (symbol) => {
-      const response = await fetch(
-        `https://metals-api.com/api/timeseries?access_key=${API_KEY}&start_date=${start_date}&end_date=${end_date}&symbols=${symbol}&base=${currency}`
-      );
+      const url = `https://metals-api.com/api/timeseries?access_key=${API_KEY}&start_date=${start_date}&end_date=${end_date}&symbols=${symbol}&base=${currency}`;
+      console.log("Historic Data URL:", url);
+
+      const response = await fetch(url);
       const data = await response.json();
       return data.rates;
     };
@@ -80,8 +81,14 @@ const TradingProcess = () => {
         if (!historicData[date]) {
           historicData[date] = {};
         }
-        const rate = metalRates[date].USD / metalRates[date][symbol];
-        historicData[date][symbol] = rate;
+        if (currency === "USD") {
+          // Calculate the rate if the currency is USD
+          const rate = metalRates[date].USD / metalRates[date][symbol];
+          historicData[date][symbol] = rate;
+        } else {
+          // Extract the rate directly if the currency is not USD
+          historicData[date][symbol] = metalRates[date][symbol];
+        }
       });
     }
 
@@ -98,14 +105,14 @@ const TradingProcess = () => {
             onChange={handleCurrencyChange}
           >
             <option value="">Currency</option>
-            <option value="USD">United States Dollar</option>
-            <option value="EUR">Euro</option>
-            <option value="GBP">British Pound</option>
-            <option value="AUD">Australian Dollar</option>
-            <option value="PLN">Polish Złoty</option>
-            <option value="CAD">Canadian Dollar</option>
-            <option value="INR">Indian Rupee</option>
-            <option value="JPY">Japanese Yen</option>
+            <option value="USD">🇺🇸 United States Dollar</option>
+            <option value="EUR">🇪🇺 Euro</option>
+            <option value="GBP">🇬🇧 British Pound</option>
+            <option value="AUD">🇦🇺 Australian Dollar</option>
+            <option value="PLN">🇵🇱 Polish Złoty</option>
+            <option value="CAD">🇨🇦 Canadian Dollar</option>
+            <option value="INR">🇮🇳 Indian Rupee</option>
+            <option value="JPY">🇯🇵 Japanese Yen</option>
           </select>
           <select
             className="selects-container selector"

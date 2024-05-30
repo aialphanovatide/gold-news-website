@@ -71,27 +71,63 @@
 
 
 .select-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Para centrar el título y los selectores en una columna */
+}
 
-  }
-  
-  .selects-container {
-    margin-top: 60px;
-    display: flex;
-  }
-  
-  .select-option {
-    margin-left: 20px; 
-  }
-  
+.selects-container {
+  margin-top: 60px;
+  display: flex;
+  gap: 15px; /* Espaciado entre los select */
+}
 
-  .selectors{
-    margin-left: 50%;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-  }
+.select-option {
+  margin-left: 20px;
+}
+
+.selectors {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px; /* Espaciado entre los select */
+}
+
+.selects-container select {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: transparent; /* Fondo transparente */
+  border: 1px solid #ccc; /* Border light grey */
+  color: #333; /* Color del texto */
+  font-size: 16px; /* Tamaño del texto */
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none; /* Elimina el estilo por defecto en Safari */
+  -moz-appearance: none; /* Elimina el estilo por defecto en Firefox */
+  appearance: none; /* Elimina el estilo por defecto en otros navegadores */
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.selects-container select:focus {
+  border: 1px solid #999; /* Border más oscuro al enfocar */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra suave al enfocar */
+}
+
+.tpt-title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.tables-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
 
 
 .ad1{

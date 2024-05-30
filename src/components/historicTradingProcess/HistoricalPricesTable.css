@@ -1,28 +1,36 @@
 .historical-prices-table {
-    width: 100%;
-    height: 76px;
-    border-radius: 23px 23px;
-    margin-bottom: 10%;
-  }
-  
-  .table-title {
-    padding: 10px;
-    color: white;
-    border-radius: 23px 23px 0 0;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
-  }
-  
-.title-table-hpt{
+  width: 100%;
+  border-radius: 23px;
+  margin-bottom: 1%;
+  background-color: white !important;
+  overflow: hidden; /* Asegura que el contenido no sobresalga de los bordes redondeados */
+}
+
+.table-title {
+  padding: 10px;
+  color: white;
+  border-radius: 23px 23px 0 0;
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 0 0 23px 23px; /* Redondea la parte inferior del contenedor */
+  overflow: hidden; /* Asegura que el contenido no sobresalga de los bordes redondeados */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white !important;
+}
+
+th, td {
+  border: none; /* Quita las líneas de las celdas */
+  padding: 8px;
+  text-align: center;
+}
+
+.title-table-hpt {
   align-items: center;
   text-align: center;
 }

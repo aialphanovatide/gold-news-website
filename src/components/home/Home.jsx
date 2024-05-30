@@ -19,12 +19,15 @@ function Home() {
   const handleMetalSelection = (metal) => {
     setSelectedMetal(metal);
   };
-  const [tradingTableHeight, setTradingTableHeight] = useState(10);
+  const [tradingTableHeight, setTradingTableHeight] = useState(0);
 
   useEffect(() => {
     const tradingTableElement = document.querySelector(".trading-table");
     if (tradingTableElement) {
       setTradingTableHeight(tradingTableElement.offsetHeight);
+    }
+    else{
+      setTradingTableHeight(tradingTableElement - 100);
     }
   }, []);
 
@@ -71,7 +74,7 @@ function Home() {
       </div>
       <div
         className="market-data"
-        style={{ marginTop: `${tradingTableHeight + 200}px` }}
+        style={{ marginTop: `${tradingTableHeight}px` }}
       >
         <MarketData metal={selectedMetal} />
       </div>

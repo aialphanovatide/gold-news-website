@@ -16,7 +16,7 @@
     border-radius: 15px;
 }
 
-.recent-news
+
 
 .news-content-recent {
     width: calc(100% - 200px); 
@@ -75,14 +75,14 @@
     .news-image {
       width: 100%;
       height: 180px;
+      border: none !important;
     }
   
     .news-content-recent {
       width: 300px !important;
       padding: 10px;
       justify-content: flex-end;
-      background-color: red;
-      
+
       
     }
 
