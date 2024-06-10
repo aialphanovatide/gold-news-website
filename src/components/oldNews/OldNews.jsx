@@ -4,16 +4,24 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'; 
 import { FaClock } from "react-icons/fa";
 
-function OldNews() {
+function OldNews({ metal }) {
     const [oldNews, setOldNews] = useState([]);
+    const [botId, setBotId] = useState(40);
+
+    useEffect(() => {
+        if (metal === 'silver') {
+            setBotId(42);
+        } else {
+            setBotId(40);
+        }
+    }, [metal]);
 
     useEffect(() => {
         const fetchOldNews = async () => {
             try {
-                const response = await axios.get('https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=40');
+                const response = await axios.get(`https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=${botId}&limit=30`);
                 const newsData = response.data.data;
                 const sortedNews = newsData.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
-                console.log("old",sortedNews);
                 const oldNewsSlice = sortedNews.slice(6, 10); // Del 7 al 9
                 setOldNews(oldNewsSlice);
             } catch (error) {
@@ -22,8 +30,8 @@ function OldNews() {
         };
 
         fetchOldNews();
-    }, []);
-    console.log(oldNews)
+    }, [botId]); // Dependencia en botId para actualizar cuando botId cambie
+
     return (
         <div className="old-news-container">
             {oldNews.map((news) => (

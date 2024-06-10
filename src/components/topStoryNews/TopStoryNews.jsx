@@ -4,14 +4,24 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaClock } from "react-icons/fa";
 
-
-function TopStoryNews() {
+function TopStoryNews({ metal }) {
     const [latestNews, setLatestNews] = useState(null);
+    const [botId, setBotId] = useState(40);
+
+    useEffect(() => {
+        if (metal === 'silver') {
+            setBotId(42);
+        } else {
+            setBotId(40);
+        }
+    }, [metal]);
+    
+
 
     useEffect(() => {
         const fetchLatestNews = async () => {
             try {
-                const response = await axios.get('https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=40&limit=30');
+                const response = await axios.get(`https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=${botId}&limit=30`);
                 const newsData = response.data.data;
                 if (newsData && newsData.length > 0) {
                     const sortedNews = newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -25,7 +35,7 @@ function TopStoryNews() {
         };
 
         fetchLatestNews();
-    }, []);
+    }, [botId]);
 
     const getContentUntilFirstPeriod = (content) => {
         const firstPeriodIndex = content.indexOf('.');
@@ -36,8 +46,6 @@ function TopStoryNews() {
     if (!latestNews) {
         return <p>Loading latest news...</p>;
     }
-    
-    console.log("latestNews",latestNews.image)
 
     return (
         <Link to={`/news/${latestNews.id}`} className="news-card-ts top-story-news">
@@ -46,7 +54,7 @@ function TopStoryNews() {
             </div>
             <div className="news-content-ts">
                 <div className="bottom-section">
-                    <p className="news-date">  <FaClock size={14} />  {latestNews.date}</p>
+                    <p className="news-date"><FaClock size={14} />  {latestNews.date}</p>
                     <h2 className="news-title-ts">{latestNews.title}</h2>
                     <p className="news-description-ts">{getContentUntilFirstPeriod(latestNews.content)}</p>
                 </div>
@@ -56,7 +64,3 @@ function TopStoryNews() {
 }
 
 export default TopStoryNews;
-
-
-
-

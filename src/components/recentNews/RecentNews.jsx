@@ -4,19 +4,27 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaClock } from "react-icons/fa";
 
-function RecentNews() {
+function RecentNews({ metal }) {
   const [recentNews, setRecentNews] = useState([]);
+  const [botId, setBotId] = useState(40);
+
+  useEffect(() => {
+    if (metal === 'silver') {
+      setBotId(42);
+    } else {
+      setBotId(40);
+    }
+  }, [metal]);
 
   useEffect(() => {
     const fetchRecentNews = async () => {
       try {
         const response = await axios.get(
-          "https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=40"
+          `https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=${botId}`
         );
         const newsData = response.data.data;
-        const sortedNews = newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)
-        );
-        const recentNewsSlice = sortedNews.slice(1, 6); // Desde la segunda hasta la sexta noticia
+        const sortedNews = newsData.sort((b, a) => new Date(b.created_at) - new Date(a.created_at));
+        const recentNewsSlice = sortedNews.slice(1, 6); 
         setRecentNews(recentNewsSlice);
       } catch (error) {
         console.error("Error fetching recent news:", error);
@@ -24,7 +32,7 @@ function RecentNews() {
     };
 
     fetchRecentNews();
-  }, []);
+  }, [botId]);
 
   return (
     <div className="recent-news-container">

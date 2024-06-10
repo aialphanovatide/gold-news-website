@@ -46,8 +46,8 @@ function Home() {
       <NavBanner onMetalClick={handleMetalSelection} />
       <div className="news-container">
         <div className="left-news">
-          <TopStoryNews />
-          <OldNews />
+          <TopStoryNews metal={selectedMetal} />
+          <OldNews metal={selectedMetal} />
         </div>
         <div className="right-news">
           <img
@@ -58,7 +58,7 @@ function Home() {
               (window.location.href = "https://aialpha.ai/educate")
             }
           />
-          <RecentNews />
+          <RecentNews metal={selectedMetal} />
           <img
             src={ad3}
             className="ad3"
