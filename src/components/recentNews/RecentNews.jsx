@@ -20,7 +20,7 @@ function RecentNews({ metal }) {
     const fetchRecentNews = async () => {
       try {
         const response = await axios.get(
-          `https://zztc5v98-5001.uks1.devtunnels.ms/get_articles?bot_id=${botId}`
+          `https://newsbotv2.ngrok.io/get_articles?bot_id=${botId}`
         );
         const newsData = response.data.data;
         const sortedNews = newsData.sort((b, a) => new Date(b.created_at) - new Date(a.created_at));
