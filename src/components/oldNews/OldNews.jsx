@@ -19,9 +19,12 @@ function OldNews({ metal }) {
     useEffect(() => {
         const fetchOldNews = async () => {
             try {
-                const response = await axios.get(`https://newsbotv2.ngrok.io/get_articles?bot_id=${botId}&limit=30`);
+                const response = await axios.get(`https://newsbotv2.ngrok.io/api/get/latest_news?coin_bot_id=${botId}&limit=30`);
+                console.log(response)
                 const newsData = response.data.data;
-                const sortedNews = newsData.sort((a, b) => new Date(b.datePublished) - new Date(a.datePublished));
+                console.log(newsData)
+                const sortedNews = newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
                 const oldNewsSlice = sortedNews.slice(6, 10); // Del 7 al 9
                 setOldNews(oldNewsSlice);
             } catch (error) {

@@ -20,10 +20,10 @@ function RecentNews({ metal }) {
     const fetchRecentNews = async () => {
       try {
         const response = await axios.get(
-          `https://newsbotv2.ngrok.io/get_articles?bot_id=${botId}`
+          `https://newsbotv2.ngrok.io/api/get/latest_news?coin_bot_id=${botId}`
         );
         const newsData = response.data.data;
-        const sortedNews = newsData.sort((b, a) => new Date(b.created_at) - new Date(a.created_at));
+        const sortedNews = newsData.sort((b, a) => new Date(a.created_at) - new Date(b.created_at));
         const recentNewsSlice = sortedNews.slice(1, 6); 
         setRecentNews(recentNewsSlice);
       } catch (error) {

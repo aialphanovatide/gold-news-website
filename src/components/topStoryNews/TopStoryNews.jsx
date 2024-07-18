@@ -21,7 +21,7 @@ function TopStoryNews({ metal }) {
     useEffect(() => {
         const fetchLatestNews = async () => {
             try {
-                const response = await axios.get(`https://newsbotv2.ngrok.io/get_articles?bot_id=${botId}&limit=30`);
+                const response = await axios.get(`https://newsbotv2.ngrok.io/api/get/latest_news?coin_bot_id=${botId}&limit=30`);
                 const newsData = response.data.data;
                 if (newsData && newsData.length > 0) {
                     const sortedNews = newsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
